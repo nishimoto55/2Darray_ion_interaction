@@ -48,9 +48,9 @@ def l(omega_z):
 
 omega_x = 0.946 * 10 ** 6 # [Hz]
 omega_y = 1.03 * 10 ** 6 # [Hz]
-omega_z = 0.19 * 10 ** 6 # [Hz]
+omega_z = 0.32 * 10 ** 6 # [Hz]
 z0 = l(omega_z)
-x0 = 30 * mu_meter
+x0 =  10 * mu_meter
 y0 = 200 * mu_meter
 
 # initialaize ion position
@@ -215,7 +215,7 @@ print('eigenvalue = \n',Enf)
 print('eigenvalue',normalized_Enf)
 
 #draw graph
-fig = plt.figure(figsize = (8,8))
+fig = plt.figure(figsize = (12,8))
 ax = fig.add_subplot(111)
 
 ax.set_xlabel(r'$d$ ($\mu$m)',fontsize = FontSize)
@@ -232,6 +232,15 @@ ax.tick_params(direction = 'in'
 dis = x0*2
 d = np.full(4, dis * 10 ** 6)
 ax.scatter(d,f,color='black')
+ax.grid()
+plt.tight_layout()
+plt.savefig('./2D_interaction_omega_z.jpg'
+            ,dpi = 300
+            ,bbox_inches='tight'
+            )
+plt.savefig('./2D_interaction_omega_z.pdf'
+            ,dpi = 300
+            ,bbox_inches = 'tight')
 plt.show()
 
 
